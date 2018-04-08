@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		AB3D238B1BEA609E00B10EC2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB3D238A1BEA609E00B10EC2 /* main.cpp */; };
 		AB3D23951BEA62D600B10EC2 /* libX11.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3D23941BEA62D600B10EC2 /* libX11.6.dylib */; };
-		AB3D23961BEA632E00B10EC2 /* lpclib_utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB3D23881BEA609600B10EC2 /* lpclib_utility.cpp */; };
-		AB3D23971BEA633100B10EC2 /* lpclib_graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB3D23891BEA609600B10EC2 /* lpclib_graphics.cpp */; };
+		AB3D23961BEA632E00B10EC2 /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB3D23881BEA609600B10EC2 /* utility.cpp */; };
+		AB3D23971BEA633100B10EC2 /* graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB3D23891BEA609600B10EC2 /* graphics.cpp */; };
 		AB3D239B1BEA64B500B10EC2 /* images in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB3D239A1BEA63B400B10EC2 /* images */; };
-		AB89298F2063145300C16963 /* lpclib_color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB89298E2063145300C16963 /* lpclib_color.cpp */; };
+		AB3D4DF12079CA490008E499 /* breakout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB3D4DF02079CA490008E499 /* breakout.cpp */; };
+		AB89298F2063145300C16963 /* color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB89298E2063145300C16963 /* color.cpp */; };
+		ABC4D81B20796FE200EE0A91 /* driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ABC4D81A20796FE200EE0A91 /* driver.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,13 +35,16 @@
 		AB1300A220682B25007FC086 /* utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utility.h; sourceTree = "<group>"; };
 		AB3D23761BEA604E00B10EC2 /* LPCGraphicsProject-Mac-Xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LPCGraphicsProject-Mac-Xcode"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3D23831BEA607200B10EC2 /* lpcgraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lpcgraphics.h; sourceTree = "<group>"; };
-		AB3D23881BEA609600B10EC2 /* lpclib_utility.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lpclib_utility.cpp; sourceTree = "<group>"; };
-		AB3D23891BEA609600B10EC2 /* lpclib_graphics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lpclib_graphics.cpp; sourceTree = "<group>"; };
+		AB3D23881BEA609600B10EC2 /* utility.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = utility.cpp; sourceTree = "<group>"; };
+		AB3D23891BEA609600B10EC2 /* graphics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graphics.cpp; sourceTree = "<group>"; };
 		AB3D238A1BEA609E00B10EC2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		AB3D238F1BEA617100B10EC2 /* CImg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CImg.h; sourceTree = "<group>"; };
 		AB3D23941BEA62D600B10EC2 /* libX11.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libX11.6.dylib; path = /opt/X11/lib/libX11.6.dylib; sourceTree = "<absolute>"; };
 		AB3D239A1BEA63B400B10EC2 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = SOURCE_ROOT; };
-		AB89298E2063145300C16963 /* lpclib_color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lpclib_color.cpp; sourceTree = "<group>"; };
+		AB3D4DF02079CA490008E499 /* breakout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = breakout.cpp; sourceTree = "<group>"; };
+		AB89298E2063145300C16963 /* color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = color.cpp; sourceTree = "<group>"; };
+		ABC4D81A20796FE200EE0A91 /* driver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = driver.cpp; sourceTree = "<group>"; };
+		ABD7C1D32075CF260018300A /* internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +62,7 @@
 		AB3D236D1BEA604E00B10EC2 = {
 			isa = PBXGroup;
 			children = (
+				AB3D4DF02079CA490008E499 /* breakout.cpp */,
 				AB3D238A1BEA609E00B10EC2 /* main.cpp */,
 				AB3D23821BEA607200B10EC2 /* include */,
 				AB3D23871BEA609600B10EC2 /* libsrc */,
@@ -77,9 +83,10 @@
 		AB3D23821BEA607200B10EC2 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				AB3D238F1BEA617100B10EC2 /* CImg.h */,
 				AB3D23831BEA607200B10EC2 /* lpcgraphics.h */,
 				AB1300A1206829B7007FC086 /* color.h */,
+				ABD7C1D32075CF260018300A /* internal.h */,
+				AB3D238F1BEA617100B10EC2 /* CImg.h */,
 				AB1300A220682B25007FC086 /* utility.h */,
 			);
 			path = include;
@@ -88,9 +95,10 @@
 		AB3D23871BEA609600B10EC2 /* libsrc */ = {
 			isa = PBXGroup;
 			children = (
-				AB3D23891BEA609600B10EC2 /* lpclib_graphics.cpp */,
-				AB89298E2063145300C16963 /* lpclib_color.cpp */,
-				AB3D23881BEA609600B10EC2 /* lpclib_utility.cpp */,
+				AB89298E2063145300C16963 /* color.cpp */,
+				AB3D23891BEA609600B10EC2 /* graphics.cpp */,
+				ABC4D81A20796FE200EE0A91 /* driver.cpp */,
+				AB3D23881BEA609600B10EC2 /* utility.cpp */,
 			);
 			path = libsrc;
 			sourceTree = "<group>";
@@ -154,9 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB3D23971BEA633100B10EC2 /* lpclib_graphics.cpp in Sources */,
-				AB89298F2063145300C16963 /* lpclib_color.cpp in Sources */,
-				AB3D23961BEA632E00B10EC2 /* lpclib_utility.cpp in Sources */,
+				ABC4D81B20796FE200EE0A91 /* driver.cpp in Sources */,
+				AB3D23971BEA633100B10EC2 /* graphics.cpp in Sources */,
+				AB3D4DF12079CA490008E499 /* breakout.cpp in Sources */,
+				AB89298F2063145300C16963 /* color.cpp in Sources */,
+				AB3D23961BEA632E00B10EC2 /* utility.cpp in Sources */,
 				AB3D238B1BEA609E00B10EC2 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,11 +1,3 @@
-//
-//  lpclib_utility.h
-//  LPCGraphicsProject
-//
-//  Created by Colin Schatz on 3/25/18.
-//  Copyright © 2018 Colin Schatz. All rights reserved.
-//
-
 #ifndef lpclib_utility_h
 #define lpclib_utility_h
 #include <string>

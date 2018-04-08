@@ -6329,11 +6329,6 @@ namespace cimg_library {
     unsigned int key(const unsigned int pos=0) const {
       return pos<(sizeof(_keys)/sizeof(unsigned int))?_keys[pos]:0;
     }
-
-    void unrelease_key()
-      {
-          _released_keys[0] = 0;
-      }
       
     unsigned int released_key(const unsigned int pos=0) const {
       return pos<(sizeof(_released_keys)/sizeof(unsigned int))?_released_keys[pos]:0;

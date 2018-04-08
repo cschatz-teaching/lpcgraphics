@@ -8,6 +8,7 @@ struct Color
     Color(unsigned int red, unsigned int green, unsigned int blue);
     Color(unsigned int gray);
     Color(string colorName);
+    Color(const char colorName[]);
     Color();
     
     unsigned int _components[3];
