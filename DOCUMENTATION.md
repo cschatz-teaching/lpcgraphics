@@ -1,39 +1,42 @@
 # LPCGraphics Library
 
 - [Overview](#overview)
-    - [Creating a Window](#creating-a-window)
-    - [Applying Commands To a Window](#applying-commands-to-a-window)
-    - [Refreshing the Display](#refreshing-the-display)
-    - [Creating a Color](#creating-a-color)
-- [Other Graphics Commands](#other-graphics-commands)
-    - [Drawing Shapes](#drawing-shapes)
-    - [Drawing Text](#drawing-text)
-    - [Drawing an Image](#drawing-an-image)
-- [User Input Commands](#user-input-commands)
-    - [Mouse Input](#mouse-input)
-    - [Keyboard Input](#keyboard-input)
-- [Controlling Timing](#controlling-timing)
+- [Controlling Frame Rate](#controlling-frame-rate)
+- [Colors](#colors)
+- [Drawing Commands](#drawing-commants)
+- [Mouse](#mouse)
+- [Keys](#keys)
+- [Window Dimensions](#window-dimensions)
+
 
 ## Overview
 
 The LPCGraphics Library allows the inclusion of simple graphics commands within a normal C++ program. To use it,
-you need a specially-prepared project (see the CS1 course homepage), as well as `#include "LPCGraphics.h"` at the top
-of any .cpp file that uses graphics commands.
+you need one of the specially-prepared projects in this repository.
 
-### Creating a Window
-
-To do any graphics commands, you first need a window. A window is actually a **type** of variable.
-The command to create a window is shown below, with `mywindow` as the name of a window variable I am
-creating in this particular case.
+The project comes with a main.cpp that is already set up correctly to use the library. There are several elements that must be in place. First, at the top, you should have these lines in order:
 
 ```c++
-GraphicsWindow mywindow(600, 400, "My Graphics Window");
+#define USE_INTERACTION_FUNCTIONS
+#include "lpcgraphics.h"
 ```
 
-The three arguments are:
-* The window width
-* The window height
-* The window title (which will be displayed in the title bar)
+The code in the program then consists of two sections, which must be in this order:
+- A section of code beginning `__INTERACTION_FUNCTIONS__` and ending with `__INTERACTION_FUNCTIONS_END__`. This will contain only specific **interaction function**.
+- Your `main()`, with at least one call to the `startGraphics()` function inside it.
+These are explained further below.
+
+## Interaction Functions
+
+Between the `__INTERACTION_FUNCTIONS__` and `__INTERACTION_FUNCTIONS_END__` symbols, you can have one or more of the following **interaction functions**. If `#define USE_INTERACTION_FUNCTIONS` is included before `#include "lpcgraphics.h"`, these functions will control the way the graphics window behaves. (If you comment out the `#define USE_INTERACTION_FUNCTIONS` line, these functions will essentially be ignored.) The prototype of each interaction function is listed below, along with an explanation of what it does.
+
+- `void setup();`
+    - The contents of this function will run **exactly once** when the graphics window is first created.
+- `void draw();`
+    - The contents of this function will run **repeatedly** after the graphics window is open, until it is closed. The rate at which the draw() function happens can be controlled -- see [Controlling Frame Rate](#controlling-frame-rate) below.
+
+## The `startGraphics` Function
+
 
 ### Applying Commands To a Window
 
@@ -45,58 +48,8 @@ further down in this document.)
 ```c++
 mywindow.GraphicsCommand(argument1, argument2,  ... );
 ```
+## Controlling Frame Rate
 
-### Refreshing the Display
-
-To enable smooth animation and better performance, when you draw something to a window,
-**It does not actually appear yet**. You must tell a window to refesh its appearance explictly,
-with the `Refresh()` command:
-
-```c++
-mywindow.Refresh()
-```
-### Creating a Color
-
-Color in the LPCGraphics library is also a **type** of variable that can be created. To create a Color 
-variable, use the pattern below:
-
-```c++
-Color mycolor(255, 255, 255);
-```
-
-The three arguments must be numbers from 0 to 255. These represent amounts of red, green and blue.
-The example above makes `mycolor` a Color variable representing white because all three color components
-are at their maximum value.
-
-## Other Graphics Commands
-
-All other commands that can be applied to a window are listed below, as function prototypes. In general,
-the parameters should be self explanatory, but I have given some additional information and clarification
-in a few places.
-
-### Drawing Shapes
-
-- `void DrawRectangle(int x, int y, int width, int height, Color color, bool filled = false);`
-- `void DrawCircle(int x, int y, int radius, Color color, bool filled = false);`
-- `void DrawEllipse(int x, int y, int xradius, int yradius, Color color, bool filled = false);`
-- `void DrawLine(int x1, int y1, int x2, int y2, Color color);`
-    - (x1, y1) and (x2, y2) are the endpoints of the line.
-
-### Drawing Text
-
-- `void DrawString(string str, int x, int y, Color color, int fontsize = 13);`
-    - This draws the given string directly on a graphics window.
-
-### Drawing an Image
-
-**_NOTE: At the moment, the only image formats that work are BMP. (Sorry!)_**
-
-- `void DrawImage(string imageFileName, int x, int y, int width = 0, int height = 0);`  
-    - The given imageFileName must be inside the "Images" folder inside the project folder.
-
-## User Input Commands
-
-The commands listed below are used to get information from the mouse and keyboard.
 
 ### Mouse Input
 
