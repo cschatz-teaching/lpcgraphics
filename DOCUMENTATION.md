@@ -1,13 +1,14 @@
 # LPCGraphics Library
 
 - [Overview](#overview)
-- [Controlling Frame Rate](#controlling-frame-rate)
+    - [Interaction Functions](#interaction-functions)
+    - [Starting and Stopping Graphics](#starting-and-stopping-graphics)
+    - [Controlling Frame Rate](#controlling-frame-rate)
 - [Colors](#colors)
 - [Drawing Commands](#drawing-commants)
 - [Mouse](#mouse)
 - [Keys](#keys)
 - [Window Dimensions](#window-dimensions)
-
 
 ## Overview
 
@@ -26,61 +27,68 @@ The code in the program then consists of two sections, which must be in this ord
 - Your `main()`, with at least one call to the `startGraphics()` function inside it.
 These are explained further below.
 
-## Interaction Functions
+### Interaction Functions
 
 Between the `__INTERACTION_FUNCTIONS__` and `__INTERACTION_FUNCTIONS_END__` symbols, you can have one or more of the following **interaction functions**. If `#define USE_INTERACTION_FUNCTIONS` is included before `#include "lpcgraphics.h"`, these functions will control the way the graphics window behaves. (If you comment out the `#define USE_INTERACTION_FUNCTIONS` line, these functions will essentially be ignored.) The prototype of each interaction function is listed below, along with an explanation of what it does.
 
 - `void setup();`
     - The contents of this function will run **exactly once** when the graphics window is first created.
+    
 - `void draw();`
     - The contents of this function will run **repeatedly** after the graphics window is open, until it is closed. The rate at which the draw() function happens can be controlled -- see [Controlling Frame Rate](#controlling-frame-rate) below.
-
-## The `startGraphics` Function
-
-
-### Applying Commands To a Window
-
-Once a window has been created, **ALL** graphics commands are **methods** (functions that apply to an object),
-so they are always called in the format below. (`mywindow` represents the name of any window variable
-that has already been created, and `GraphicsCommand` represents one of the graphics commands from the list
-further down in this document.)
-
-```c++
-mywindow.GraphicsCommand(argument1, argument2,  ... );
-```
-## Controlling Frame Rate
-
-
-### Mouse Input
-
-- `void WaitForMouseDown();`
-    - This pauses the program until the mouse button is pressed down. 
-    - If the button is already down, no pause happens.
-
-- `void WaitForMouseUp();`
-    - This pauses the program until the mouse button is pressed up. 
-    - If the button is already up, no pause happens.
-
-- `int MouseX();`
-    - This returns the current X position of the mouse pointer within the window.
-
-- `int MouseY();`
-    - This returns the current Y position of the mouse pointer within the window.
-
-- `bool MouseIsDown();`
-    - This returns true/false to indicate whether the mouse button is currently down. 
     
-### Keyboard Input
+- **more interaction functions needed here!!**
 
-- `char WaitForKeyPress();`
-    - This pauses the program until the user pressed a key in the graphics window, then returns which key was pressed.
+### Starting and Stopping Grahpics
 
-- `bool KeyPressed(string key);`
-    - This returns true/false to indicate if the given key is currently being pressed.
-    - For arrow keys, use "up", "down", "left" or "right" as the argument.
-    - For other keys, use a one-letter-long string such as "w" or "d".
+In your `main()`, you can control the starting and stopping of graphics with these functions:
 
-### Controlling Timing
+- `void startGraphics(int width, int height, string title);`
+    - This creates the graphics window with the given dimensions and title. If `USE_INTERACTION_FUNCTIONS` is active, this will also begin the use of any interaction functions you have specified in the file.
+    
+- `void stopGraphics();`
+    - This closes the graphics window. Any interaction functions will no longer have any effect after this.
+    
+- `void waitForClose();`
+    - Calling this function will wait until the user themselves closes the graphics window. While it is waiting, any interaction functions will continue working, but `waitForClose()` itself will not end until the window is closed.
 
-- `void Pause(double duration);`
-    - This pauses the program for the given duration, in seconds.
+## Colors
+
+Colors - background, fill, stroke
+
+4 systems for specifying color
+ - 1 int between 0-255
+ - 3 ints
+ - hex
+ - name
+ 
+## Drawing Commands
+
+Here are all of drawing commands supported by this library:
+
+ -  ..
+ -  ..
+ - sdfsdf
+ 
+## Mouse
+
+To check the current state of the mouse, you can use these three functions:
+
+- `int mouseX();`
+    - returns the current X position of the mouse within the window.
+
+- `int mouseY();`
+    - returns the current Y position of the mouse within the window.
+
+- `bool mouseDown();`
+    - return whether the mouse button is currently down.
+   
+## Keys
+
+When writing code inside the `keyPressed()` or `keyReleased()` interaction functions, the current key is stored in a variable named **`keyCode`**.
+
+ADD EXAMPLE OF CHECKING HERE!
+
+## Window Dimensions
+
+The current window dimensions are always available in variables named **`width`** and **`height`**.
