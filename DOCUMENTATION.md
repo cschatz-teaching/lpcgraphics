@@ -5,7 +5,7 @@
     - [Starting and Stopping Graphics](#starting-and-stopping-graphics)
     - [Controlling Frame Rate](#controlling-frame-rate)
 - [Colors](#colors)
-- [Drawing Commands](#drawing-commants)
+- [Drawing Commands](#drawing-commands)
 - [Mouse](#mouse)
 - [Keys](#keys)
 - [Window Dimensions](#window-dimensions)
@@ -45,7 +45,7 @@ The contents of this function will run **repeatedly** after the graphics window 
     
 - **more interaction functions needed here!!**
 
-### Starting and Stopping Grahpics
+### Starting and Stopping Graphics
 
 In your `main()`, you can control the starting and stopping of graphics with these functions:
 
@@ -57,6 +57,11 @@ This closes the graphics window. Any interaction functions will no longer have a
     
 - `void waitForClose();`<br />
 Calling this function will wait until the user themselves closes the graphics window. While it is waiting, any interaction functions will continue working, but `waitForClose()` itself will not end until the window is closed.
+
+### Controlling Frame Rate
+
+- `void frameRate(double rate)`<br />
+Call this function to set the rate at which the `draw()` function runs. The default is 30 times per second.
 
 ## Colors
 
