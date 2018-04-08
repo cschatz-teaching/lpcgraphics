@@ -1,11 +1,11 @@
 /*********************************************************************
- 
+
  === WARNING! ===
- 
+
  The code in this file only contains INTERNAL IMPLEMENTATION code
  for the LPCGraphics library. You SHOULD NOT edit it, and you do NOT
  need to read or understand it in order to use the library.
- 
+
  **********************************************************************/
 
 #include <set>
@@ -35,14 +35,14 @@ void _init(int w, int h, string t)
 {
     if (_graphics_ready)
         Error("startGraphics() was called twice");
-    
+
     width = w;
     height = h;
-    
+
     _gpixels = new cimg_library::CImg<unsigned char>(width, height, 1, 3);
     _gdisplay = new cimg_library::CImgDisplay(*(_gpixels), t.c_str());
     _gpixels->display(*(_gdisplay));
-    
+
     if (_gdisplay->window_width() != width)
         Error("Requested width " + IntToString(width) + " does not fit the screen.");
     if (_gdisplay->height() != height)
@@ -54,7 +54,7 @@ void _init(int w, int h, string t)
         _driver->setup();
         _drawThread = new thread(_drawLoop);
         _eventThread = new thread(_eventLoop);
-        
+
     }
 }
 
@@ -104,7 +104,7 @@ void _drawLoop() {
             break;
         cimg_library::cimg::wait(1000.0 / _frameRate);
     }
-    
+
     // Done
     delete _gdisplay;
     delete _gpixels;

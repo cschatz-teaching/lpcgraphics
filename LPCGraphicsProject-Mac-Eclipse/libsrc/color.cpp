@@ -1,11 +1,11 @@
 /*********************************************************************
- 
+
  === WARNING! ===
- 
+
  The code in this file only contains INTERNAL IMPLEMENTATION code
  for the LPCGraphics library. You SHOULD NOT edit it, and you do NOT
  need to read or understand it in order to use the library.
- 
+
  **********************************************************************/
 
 #include <string>
