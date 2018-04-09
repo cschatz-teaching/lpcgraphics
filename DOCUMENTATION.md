@@ -123,9 +123,19 @@ Sets the stroke color "off", so that any shapes drawn after this command runs ha
 
 Here are all of drawing commands supported by this library:
 
- -  ..
- -  ..
- - sdfsdf
+- `void ellipse(int centerX, int centerY, int width, int height);`
+ 
+- `void line(int x1, int y1, int x2, int y2);`
+
+- `void point(int x, int y);`
+ 
+- `void rect(int x, int y, int w, int h);`
+
+- `void quad(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);`
+
+- `void triangle(int x1, int y1, int x2, int y2, int x3, int y3);`
+
+- `void text(string s, int x, int y, int fontSize);`
  
 ## Mouse
 
