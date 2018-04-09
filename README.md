@@ -5,4 +5,4 @@ This repository contains starter projects for using the LPCGraphics library:
 - Xcode on Mac
 - Eclipse on Mac
 
-Information about how to use the library is in the [DOCUMENTATION.md](../DOCUMENTATION.md) file.
+Information about how to use the library is in the [DOCUMENTATION.md](./DOCUMENTATION.md) file.
