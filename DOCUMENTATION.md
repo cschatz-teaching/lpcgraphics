@@ -76,6 +76,8 @@ Call this function to set the rate at which the `draw()` function runs. The defa
 
 ## Colors
 
+### Creating/Specifying Colors
+
 The most basic command related to color in this library is the creation of an individual *color variable*:
 
 `Color mycolor(... argument(s) ...)`;
@@ -97,6 +99,25 @@ Color colorC("#a076dc");
 Color colorD("#afa");
 Color colorE("CornflowerBlue");
 ```
+
+### Using Colors
+
+Commands that make use of colors are listed below. For all of these commands, the argument(s) can have the same format as any of the systems listed above, or can be an existing color variable.
+
+- `void background(...);`<br />
+Fills the entire screen with the given color.
+
+- `void fillColor(...);`<br />
+Set the **fill color** to the given color. This is used to fill the inside of any shapes drawn after this command runs.
+
+- `void strokeColor(...);`<br />
+Set the **stroke color** to the given color. This is used to fill the outline of any shapes, or any lines, drawn after this command runs.
+
+- `void noFill();`<br />
+Sets the fill color "off", so that any shapes drawn after this command runs have no fill color at all.
+
+- `void noStroke();`<br />
+Sets the stroke color "off", so that any shapes drawn after this command runs have no stroke color at all.
 
 ## Drawing Commands
 
