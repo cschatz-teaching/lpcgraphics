@@ -76,14 +76,18 @@ Call this function to set the rate at which the `draw()` function runs. The defa
 
 ## Colors
 
-Colors - background, fill, stroke
+The most basic command related to color in this library is the creation of an individual *color variable*:
 
-4 systems for specifying color
- - 1 int between 0-255
- - 3 ints
- - hex
- - name
- 
+`Color mycolor(...)`;
+
+This would create a variable named `mycolor` representing a specific color. The color itself may be specified
+by using 4 possible systems:
+
+- Grayscale: A single int from 0 to 255, representing a grayscale color between pure black and pure white
+- RGB: Three ints, each from 0 to 255, representing amounts of red, green and blue
+- Hex: A string beginning with "#" followed by 3 or 6 characters using the [hex triplet format](https://en.wikipedia.org/wiki/Web_colors#Hex_triplet)
+- Name: A string representing the English name of a color, using one of the standard [CSS color names](https://www.w3schools.com/cssref/css_colors.asp).
+
 ## Drawing Commands
 
 Here are all of drawing commands supported by this library:
