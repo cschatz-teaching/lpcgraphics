@@ -24,16 +24,17 @@ The project comes with a main.cpp that is already set up correctly to use the li
 
 The code in the program then consists of two sections, which must be in this order:
 
-- A section of code beginning `__INTERACTION_FUNCTIONS__` and ending with `__INTERACTION_FUNCTIONS_END__`. This will contain only specific **interaction function**.
+- A section of code beginning `__INTERACTION_FUNCTIONS__` and ending with `__INTERACTION_FUNCTIONS_END__`. This will contain only specific **interaction functions**.
 
 - Your `main()`, with at least one call to the `startGraphics()` function inside it.
+
 These are explained further below.
 
 ### Interaction Functions
 
 Between the `__INTERACTION_FUNCTIONS__` and `__INTERACTION_FUNCTIONS_END__` symbols, you can have one or more of the following **interaction functions**.
 
-If `#define USE_INTERACTION_FUNCTIONS` is included before `#include "lpcgraphics.h"`, these functions will control the way the graphics window behaves. If you comment out the `#define USE_INTERACTION_FUNCTIONS` line, these functions will essentially be ignored.
+If `#define USE_INTERACTION_FUNCTIONS` is included before `#include "lpcgraphics.h"`, these functions will control the way the graphics window behaves. If you comment out the `#define USE_INTERACTION_FUNCTIONS` line, these functions will be ignored by the graphics system.
 
 The prototype of each interaction function is listed below, along with an explanation of what it does.
 
