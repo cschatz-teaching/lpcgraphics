@@ -1,4 +1,4 @@
-# LPCGraphics Library
+# LPCGraphics Library - Documentation
 
 - [Overview](#overview)
     - [Interaction Functions](#interaction-functions)
@@ -39,12 +39,22 @@ If `#define USE_INTERACTION_FUNCTIONS` is included before `#include "lpcgraphics
 The prototype of each interaction function is listed below, along with an explanation of what it does.
 
 - `void setup();`<br />
-The contents of this function will run **exactly once** when the graphics window is first created.
+This function will run **exactly once** when the graphics window is first created.
     
 - `void draw();`<br />
-The contents of this function will run **repeatedly** after the graphics window is open, until it is closed. The rate at which the draw() function happens can be controlled -- see [Controlling Frame Rate](#controlling-frame-rate) below.
+This function will run **repeatedly** after the graphics window is open, until it is closed. The rate at which the draw() function happens can be controlled -- see [Controlling Frame Rate](#controlling-frame-rate) below.
     
-- **more interaction functions needed here!!**
+- `void mousePressed()`<br />
+This function will run whenever the primary mouse button is pressed down.
+
+- `void mouseReleased()`<br />
+This function will run whenever the primary mouse button is released.
+
+- `void keyPressed()`<br />
+This function will run whenever a key has been pressed. See [Keys](#keys) for more information.
+
+- `void keyReleased()`<br />
+This function will run whenever a key has been pressed. See [Keys](#keys) for more information.
 
 ### Starting and Stopping Graphics
 
@@ -97,9 +107,8 @@ returns whether the mouse button is currently down.
    
 ## Keys
 
-When writing code inside the `keyPressed()` or `keyReleased()` interaction functions, the current key is stored in a variable named **`keyCode`**.
-
-ADD EXAMPLE OF CHECKING HERE!
+When writing code inside the `keyPressed()` or `keyReleased()` interaction functions, the current key is stored in a variable named **`keyCode`**. To determine which key was pressed (or released), compare `keyCode` to one of the values listed
+here: [Key Code Constants](./KeyCodeConstants.md)
 
 ## Window Dimensions
 
