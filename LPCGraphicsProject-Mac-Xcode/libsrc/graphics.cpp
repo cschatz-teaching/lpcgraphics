@@ -1,12 +1,12 @@
 /*********************************************************************
-
+ 
  === WARNING! ===
  
- The code in this file only contains INTERNAL IMPLEMENTATION code 
+ The code in this file only contains INTERNAL IMPLEMENTATION code
  for the LPCGraphics library. You SHOULD NOT edit it, and you do NOT
  need to read or understand it in order to use the library.
-
-**********************************************************************/
+ 
+ **********************************************************************/
 
 #include <iostream>
 #include <thread>
@@ -27,7 +27,7 @@ extern Color _fillColor;
 extern Color _strokeColor;
 extern bool _useFill;
 extern bool _useStroke;
-extern thread * _drawThread;
+extern thread * _eventThread;
 extern bool _mouseDown;
 void _refresh();
 _hooks * _driver;
@@ -44,7 +44,7 @@ int mouseY()
 
 bool mouseDown()
 {
-    return _mouseDown;
+    return _gdisplay->button() & 0x1;
 }
 
 
@@ -53,7 +53,7 @@ void background(Color c)
     _gpixels->draw_rectangle(0, 0, _gpixels->width(), _gpixels->height(), c._components);
     if (!_driver)
         _refresh();
-
+    
 }
 
 void background(int r, int g, int b)
@@ -105,6 +105,7 @@ void ellipse(int centerX, int centerY, int width, int height)
         _gpixels->draw_ellipse(centerX, centerY, width / 2.0, height / 2.0, 0, _fillColor._components);
     if (_useStroke)
         _gpixels->draw_ellipse(centerX, centerY, width / 2.0, height / 2.0, 0, _strokeColor._components, 1, ~0);
+    
     if (!_driver)
         _refresh();
 }
@@ -199,7 +200,7 @@ void image(Image img, int x, int y)
 
 void image(Image img, int x, int y, int width, int height)
 {
-     CImg<unsigned char>* ptr = (CImg<unsigned char>*)img;
+    CImg<unsigned char>* ptr = (CImg<unsigned char>*)img;
     _gpixels->draw_image(x, y, ptr->get_resize(width, height));
     if (!_driver)
         _refresh();
@@ -207,7 +208,7 @@ void image(Image img, int x, int y, int width, int height)
 
 void image(Image img, int x, int y, double angle)
 {
-     CImg<unsigned char>* ptr = (CImg<unsigned char>*)img;
+    CImg<unsigned char>* ptr = (CImg<unsigned char>*)img;
     _gpixels->draw_image(x, y, ptr->get_rotate(angle));
     if (!_driver)
         _refresh();
@@ -216,8 +217,8 @@ void image(Image img, int x, int y, double angle)
 
 void waitForClose()
 {
-    if (_driver && _drawThread)
-        _drawThread->join();
+    if (_driver && _eventThread)
+        _eventThread->join();
     else if (!_driver)
     {
         while (!(_gdisplay->is_closed()))
