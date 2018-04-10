@@ -1,4 +1,4 @@
-# LPCGraphics Library
+# LPCGraphics Library - Documentation
 
 - [Overview](#overview)
     - [Interaction Functions](#interaction-functions)
@@ -24,26 +24,37 @@ The project comes with a main.cpp that is already set up correctly to use the li
 
 The code in the program then consists of two sections, which must be in this order:
 
-- A section of code beginning `__INTERACTION_FUNCTIONS__` and ending with `__INTERACTION_FUNCTIONS_END__`. This will contain only specific **interaction function**.
+- A section of code beginning `__INTERACTION_FUNCTIONS__` and ending with `__INTERACTION_FUNCTIONS_END__`. This will contain only specific **interaction functions**.
 
 - Your `main()`, with at least one call to the `startGraphics()` function inside it.
+
 These are explained further below.
 
 ### Interaction Functions
 
 Between the `__INTERACTION_FUNCTIONS__` and `__INTERACTION_FUNCTIONS_END__` symbols, you can have one or more of the following **interaction functions**.
 
-If `#define USE_INTERACTION_FUNCTIONS` is included before `#include "lpcgraphics.h"`, these functions will control the way the graphics window behaves. If you comment out the `#define USE_INTERACTION_FUNCTIONS` line, these functions will essentially be ignored.
+If `#define USE_INTERACTION_FUNCTIONS` is included before `#include "lpcgraphics.h"`, these functions will control the way the graphics window behaves. If you comment out the `#define USE_INTERACTION_FUNCTIONS` line, these functions will be ignored by the graphics system.
 
 The prototype of each interaction function is listed below, along with an explanation of what it does.
 
 - `void setup();`<br />
-The contents of this function will run **exactly once** when the graphics window is first created.
+This function will run **exactly once** when the graphics window is first created.
     
 - `void draw();`<br />
-The contents of this function will run **repeatedly** after the graphics window is open, until it is closed. The rate at which the draw() function happens can be controlled -- see [Controlling Frame Rate](#controlling-frame-rate) below.
+This function will run **repeatedly** after the graphics window is open, until it is closed. The rate at which the draw() function happens can be controlled -- see [Controlling Frame Rate](#controlling-frame-rate) below.
     
-- **more interaction functions needed here!!**
+- `void mousePressed()`<br />
+This function will run whenever the primary mouse button is pressed down.
+
+- `void mouseReleased()`<br />
+This function will run whenever the primary mouse button is released.
+
+- `void keyPressed()`<br />
+This function will run whenever a key has been pressed. See [Keys](#keys) for more information.
+
+- `void keyReleased()`<br />
+This function will run whenever a key has been pressed. See [Keys](#keys) for more information.
 
 ### Starting and Stopping Graphics
 
@@ -65,21 +76,66 @@ Call this function to set the rate at which the `draw()` function runs. The defa
 
 ## Colors
 
-Colors - background, fill, stroke
+### Creating/Specifying Colors
 
-4 systems for specifying color
- - 1 int between 0-255
- - 3 ints
- - hex
- - name
- 
+The most basic command related to color in this library is the creation of an individual *color variable*:
+
+`Color mycolor(... argument(s) ...)`;
+
+This would create a variable named `mycolor` representing a specific color. The argument(s) may be specified 
+with any of these 4 options:
+
+- Grayscale: A single int from 0 to 255, representing a grayscale color between pure black and pure white
+- RGB: Three ints, each from 0 to 255, representing amounts of red, green and blue
+- Hex: A string beginning with "#" followed by 3 or 6 characters using the [hex triplet format](https://en.wikipedia.org/wiki/Web_colors#Hex_triplet)
+- Name: A string representing the English name of a color, using one of the standard [CSS color names](https://www.w3schools.com/cssref/css_colors.asp).
+
+For example, here are several color variables being created:
+
+```c++
+Color colorA(128); 
+Color colorB(255, 0, 0);
+Color colorC("#a076dc");
+Color colorD("#afa");
+Color colorE("CornflowerBlue");
+```
+
+### Using Colors
+
+Commands that make use of colors are listed below. For all of these commands, the argument(s) can have the same format as any of the systems listed above, or can be an existing color variable.
+
+- `void background(...);`<br />
+Fills the entire screen with the given color.
+
+- `void fillColor(...);`<br />
+Set the **fill color** to the given color. This is used to fill the inside of any shapes drawn after this command runs.
+
+- `void strokeColor(...);`<br />
+Set the **stroke color** to the given color. This is used to fill the outline of any shapes, or any lines, drawn after this command runs.
+
+- `void noFill();`<br />
+Sets the fill color "off", so that any shapes drawn after this command runs have no fill color at all.
+
+- `void noStroke();`<br />
+Sets the stroke color "off", so that any shapes drawn after this command runs have no stroke color at all.
+
 ## Drawing Commands
 
 Here are all of drawing commands supported by this library:
 
- -  ..
- -  ..
- - sdfsdf
+- `void ellipse(int centerX, int centerY, int width, int height);`
+ 
+- `void line(int x1, int y1, int x2, int y2);`
+
+- `void point(int x, int y);`
+ 
+- `void rect(int x, int y, int w, int h);`
+
+- `void quad(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);`
+
+- `void triangle(int x1, int y1, int x2, int y2, int x3, int y3);`
+
+- `void text(string s, int x, int y, int fontSize);`
  
 ## Mouse
 
@@ -96,9 +152,8 @@ returns whether the mouse button is currently down.
    
 ## Keys
 
-When writing code inside the `keyPressed()` or `keyReleased()` interaction functions, the current key is stored in a variable named **`keyCode`**.
-
-ADD EXAMPLE OF CHECKING HERE!
+When writing code inside the `keyPressed()` or `keyReleased()` interaction functions, the current key is stored in a variable named **`keyCode`**. To determine which key was pressed (or released), compare `keyCode` to one of the values listed
+here: [Key Code Constants](./KeyCodeConstants.md)
 
 ## Window Dimensions
 
