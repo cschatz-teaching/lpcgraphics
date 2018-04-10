@@ -26,7 +26,6 @@ extern Color _fillColor;
 extern Color _strokeColor;
 extern bool _useFill;
 extern bool _useStroke;
-extern bool _mouseDown;
 void _refresh();
 void _waitForClose();
 _hooks * _driver;
@@ -43,9 +42,8 @@ int mouseY()
 
 bool mouseDown()
 {
-    return _mouseDown;
+    return _gdisplay->button() & 0x1;
 }
-
 
 void background(Color c)
 {

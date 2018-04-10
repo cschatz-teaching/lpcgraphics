@@ -8,14 +8,14 @@
 
  **********************************************************************/
 
-#include <set>
+#include <unordered_set>
 #include <process.h>
 #include "CImg.h"
 #include "lpcgraphics.h"
 #include "color.h"
 #include "utility.h"
 
-set<unsigned int> _keySet;
+unordered_set<unsigned int> _keySet;
 cimg_library::CImgDisplay * _gdisplay;
 cimg_library::CImg<unsigned char> * _gpixels;
 bool _graphics_ready = false;
@@ -30,6 +30,8 @@ unsigned __stdcall _drawLoop(void *unused);
 unsigned __stdcall _eventLoop(void *unused);
 void _refresh();
 bool _mouseDown = false;
+unsigned long _lasttime;
+unsigned long _nexttime;
 
 void _init(int w, int h, string t)
 {
@@ -50,9 +52,11 @@ void _init(int w, int h, string t)
     
     _graphics_ready = true;
     
+    _lasttime = cimg_library::cimg::time();
+	_nexttime = _lasttime + 1000.0 / _frameRate;
+
     if (_driver) {
         _driver->setup();
-        _drawThread = (HANDLE) _beginthreadex(NULL, 0, _drawLoop, NULL, 0, NULL);
         _eventThread =  (HANDLE) _beginthreadex(NULL, 0, _eventLoop, NULL, 0, NULL);
 
     }
@@ -67,33 +71,47 @@ void _refresh()
 unsigned __stdcall _eventLoop(void *unused) {
     while (!(_gdisplay->is_closed()))
     {
-        if (_gdisplay->is_event()) {
-            if ((_gdisplay->button() & 0x1) && !_mouseDown) {
+        if (_gdisplay->button() & 0x1) {
+            if (!_mouseDown) {
                 _mouseDown = true;
                 _driver->mousePressed();
                 _refresh();
             }
-            if (!(_gdisplay->button() & 0x1) && _mouseDown) {
-                _mouseDown = false;
-                _driver->mouseReleased();
+        }
+        else if (_mouseDown) {
+            _mouseDown = false;
+            _driver->mouseReleased();
+            _refresh();
+        }
+        unsigned int k = _gdisplay->key();
+        if (k != 0 && _keySet.find(k) == _keySet.end()) {
+            _keySet.insert(k);
+            keyCode = k;
+            _driver->keyPressed();
+            _refresh();
+        } else {
+            unsigned int kr = _gdisplay->released_key();
+            if (kr != 0 && _keySet.find(kr) != _keySet.end()) {
+                _keySet.erase(kr);
+                _driver->keyReleased();
                 _refresh();
-            }
-            unsigned int k = _gdisplay->key();
-            if (k != 0 && _keySet.find(k) == _keySet.end()) {
-                _keySet.insert(k);
-                keyCode = k;
-                _driver->keyPressed();
-                _refresh();
-            } else {
-                unsigned int kr = _gdisplay->released_key();
-                if (kr != 0 && _keySet.find(kr) != _keySet.end()) {
-                    _keySet.erase(kr);
-                    _driver->keyReleased();
-                    _refresh();
-                }
             }
         }
+
+        unsigned long now = cimg_library::cimg::time();
+        if (now > _nexttime)
+        {
+            _lasttime = _nexttime;
+            _nexttime = _lasttime + 1000.0 / _frameRate;
+            _driver->draw();
+            _refresh();
+            if (_gdisplay->is_closed())
+                break;
+        }
     }
+    delete _gdisplay;
+    delete _gpixels;
+    _graphics_ready = false;
     return 0;
 }
 
@@ -116,9 +134,9 @@ unsigned __stdcall _drawLoop(void *unused) {
 
 void _waitForClose()
 {
-    if (_driver && _drawThread )
+    if (_driver && _eventThread )
     {
-    	WaitForSingleObject(_drawThread, INFINITE);
+    	WaitForSingleObject(_eventThread, INFINITE);
     }
     else if (!_driver)
     {
