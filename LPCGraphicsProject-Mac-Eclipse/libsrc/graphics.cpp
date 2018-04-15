@@ -28,7 +28,6 @@ extern Color _strokeColor;
 extern bool _useFill;
 extern bool _useStroke;
 extern thread * _eventThread;
-extern bool _mouseDown;
 void _refresh();
 _hooks * _driver;
 
