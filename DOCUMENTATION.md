@@ -132,14 +132,19 @@ Draws a line, using the current stroke color, from the location (*x1, y1*) to th
 - `void point(int x, int y);`
 Draws a point, using the current stroke color, at location (*x, y*).
  
-- `void rect(int x, int y, int w, int h);`
+- `void rect(int x, int y, int w, int h);`<br />
 Draws a rectangle whose upper left corner is at location (*x, y*), with width *w* and height *h*.
 
-- `void quad(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);`
+- `void quad(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);`<br />
+Draws a quadrilateral (i.e. a 4-sided polygon), using the 8 arguments given as 4 *x,y* pairs.
+The edges of the shape will be connected between vertices in the order given.
 
-- `void triangle(int x1, int y1, int x2, int y2, int x3, int y3);`
+- `void triangle(int x1, int y1, int x2, int y2, int x3, int y3);`<br />
+Draws a triangle whose three vertices are (*x1, y1*), (*x2, y2*) and (*x3, y3*).
 
 - `void text(string s, int x, int y, int fontSize);`
+Draws the string *s* onto the graphics window, using the current fill color, using font size *fontSize*
+and placing the text so the upper-left corner of its bounding box is at location (*x, y*).
  
 ## Mouse
 
