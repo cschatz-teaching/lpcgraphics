@@ -123,13 +123,17 @@ Sets the stroke color "off", so that any shapes drawn after this command runs ha
 
 Here are all of drawing commands supported by this library:
 
-- `void ellipse(int centerX, int centerY, int width, int height);`
+- `void ellipse(int centerX, int centerY, int w, int h);`<br />
+Draws an ellipse with its center at (*centerX, centerY*), with *w* and *h* as the width and height of the ellipse.
  
-- `void line(int x1, int y1, int x2, int y2);`
+- `void line(int x1, int y1, int x2, int y2);`<br />
+Draws a line, using the current stroke color, from the location (*x1, y1*) to the location (*x2, y2*).
 
 - `void point(int x, int y);`
+Draws a point, using the current stroke color, at location (*x, y*).
  
 - `void rect(int x, int y, int w, int h);`
+Draws a rectangle whose upper left corner is at location (*x, y*), with width *w* and height *h*.
 
 - `void quad(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);`
 
@@ -142,13 +146,13 @@ Here are all of drawing commands supported by this library:
 To check the current state of the mouse, you can use these three functions:
 
 - `int mouseX();`<br />
-returns the current X position of the mouse within the window.
+Returns the current X position of the mouse within the window.
 
 - `int mouseY();`<br />
-returns the current Y position of the mouse within the window.
+Returns the current Y position of the mouse within the window.
 
 - `bool mouseDown();`<br />
-returns whether the mouse button is currently down.
+Returns whether the mouse button is currently down.
    
 ## Keys
 
