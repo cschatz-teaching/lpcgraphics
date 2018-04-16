@@ -44,16 +44,16 @@ This function will run **exactly once** when the graphics window is first create
 - `void draw();`<br />
 This function will run **repeatedly** after the graphics window is open, until it is closed. The rate at which the draw() function happens can be controlled -- see [Controlling Frame Rate](#controlling-frame-rate) below.
     
-- `void mousePressed()`<br />
+- `void mousePressed();`<br />
 This function will run whenever the primary mouse button is pressed down.
 
-- `void mouseReleased()`<br />
+- `void mouseReleased();`<br />
 This function will run whenever the primary mouse button is released.
 
-- `void keyPressed()`<br />
+- `void keyPressed();`<br />
 This function will run whenever a key has been pressed. See [Keys](#keys) for more information.
 
-- `void keyReleased()`<br />
+- `void keyReleased();`<br />
 This function will run whenever a key has been pressed. See [Keys](#keys) for more information.
 
 ### Starting and Stopping Graphics
@@ -71,7 +71,7 @@ Calling this function will wait until the user themselves closes the graphics wi
 
 ### Controlling Frame Rate
 
-- `void frameRate(double rate)`<br />
+- `void frameRate(double rate);`<br />
 Call this function to set the rate at which the `draw()` function runs. The default is 30 times per second.
 
 ## Colors
@@ -80,7 +80,7 @@ Call this function to set the rate at which the `draw()` function runs. The defa
 
 The most basic command related to color in this library is the creation of an individual *color variable*:
 
-`Color mycolor(... argument(s) ...)`;
+`Color mycolor(... argument(s) ...);`
 
 This would create a variable named `mycolor` representing a specific color. The argument(s) may be specified 
 with any of these 4 options:
