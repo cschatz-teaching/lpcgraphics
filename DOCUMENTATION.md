@@ -151,7 +151,7 @@ and placing the text so the upper-left corner of its bounding box is at location
 `void image(Image img, int x, int y, double angle);`<br />
 The functions all draw an image at a given (*x, y*) position. Optionally, you can specify a width and height (otherwise it will be drawn with its original dimensions), or a rotation angle.
     - To create an Image variable, use a command in this form:<br />
-    `Image imageVariable = loadImage(imageFileName)`<br />
+    `Image imageVariable = loadImage(imageFileName);`<br />
     The image file name must correspond to a **BMP format file** (only!) that is inside the **images** folder within your project.
 
 ## Mouse
