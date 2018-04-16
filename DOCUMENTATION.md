@@ -145,7 +145,15 @@ Draws a triangle whose three vertices are (*x1, y1*), (*x2, y2*) and (*x3, y3*).
 - `void text(string s, int x, int y, int fontSize);`
 Draws the string *s* onto the graphics window, using the current fill color, using font size *fontSize*
 and placing the text so the upper-left corner of its bounding box is at location (*x, y*).
- 
+
+- `void image(Image img, int x, int y);`<br />
+`void image(Image img, int x, int y, int width, int height);`<br />
+`void image(Image img, int x, int y, double angle);`<br />
+The functions all draw an image at a given (*x, y*) position. Optionally, you can specify a width and height (otherwise it will be drawn with its original dimensions), or a rotation angle.
+    - To create an Image variable, use a command in this form:<br />
+    `Image imageVariable = loadImage(imageFileName)`<br />
+    The image file name must correspond to a **BMP format file** (only!) that is inside the **images** folder within your project.
+
 ## Mouse
 
 To check the current state of the mouse, you can use these three functions:
