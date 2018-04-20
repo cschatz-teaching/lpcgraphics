@@ -5,8 +5,11 @@ using namespace std;
 
 __INTERACTION_FUNCTIONS__
 
+Image face;
+
 void setup()
 {
+    face = loadImage("face.bmp");
     background(50);
     fillColor("LightBlue");
     text("HELLO WORLD", 200, 100, 32);
@@ -16,14 +19,8 @@ void setup()
 
 void keyPressed()
 {
-    switch (keyCode) {
-        case keySPACE:
-            background(50);
-            break;
-        case keyESC:
-            stopGraphics();
-            break;
-    }
+    if (keyCode == keySPACE)
+        stopGraphics();
 }
 
 void draw()

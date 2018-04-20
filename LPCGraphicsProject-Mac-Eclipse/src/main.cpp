@@ -16,14 +16,10 @@ void setup()
 
 void keyPressed()
 {
-    switch (keyCode) {
-        case keySPACE:
-            background(50);
-            break;
-        case keyESC:
-            stopGraphics();
-            break;
-    }
+	if (keyCode == keySPACE)
+	{
+		stopGraphics();
+	}
 }
 
 void draw()

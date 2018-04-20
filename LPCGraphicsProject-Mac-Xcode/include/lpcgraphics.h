@@ -6,6 +6,7 @@
 #include <iostream>
 #include "internal.h"
 #include "color.h"
+#include "keys.h"
 using namespace std;
 
 // global graphics variables

@@ -7,18 +7,21 @@ CPP_SRCS += \
 ../libsrc/color.cpp \
 ../libsrc/driver.cpp \
 ../libsrc/graphics.cpp \
+../libsrc/keys.cpp \
 ../libsrc/utility.cpp 
 
 OBJS += \
 ./libsrc/color.o \
 ./libsrc/driver.o \
 ./libsrc/graphics.o \
+./libsrc/keys.o \
 ./libsrc/utility.o 
 
 CPP_DEPS += \
 ./libsrc/color.d \
 ./libsrc/driver.d \
 ./libsrc/graphics.d \
+./libsrc/keys.d \
 ./libsrc/utility.d 
 
 

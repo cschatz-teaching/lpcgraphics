@@ -13,6 +13,8 @@
 		AB3D239B1BEA64B500B10EC2 /* images in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB3D239A1BEA63B400B10EC2 /* images */; };
 		AB3D4DF2207AA9A40008E499 /* libX11.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3D23941BEA62D600B10EC2 /* libX11.6.dylib */; };
 		AB89298F2063145300C16963 /* color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB89298E2063145300C16963 /* color.cpp */; };
+		AB95649C2089933E002B42D8 /* keys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB95649B2089933E002B42D8 /* keys.cpp */; };
+		AB95649E20899813002B42D8 /* foo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB95649D20899813002B42D8 /* foo.cpp */; };
 		ABC4D81B20796FE200EE0A91 /* driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ABC4D81A20796FE200EE0A91 /* driver.cpp */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +42,10 @@
 		AB3D238F1BEA617100B10EC2 /* CImg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CImg.h; sourceTree = "<group>"; };
 		AB3D23941BEA62D600B10EC2 /* libX11.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libX11.6.dylib; path = /opt/X11/lib/libX11.6.dylib; sourceTree = "<absolute>"; };
 		AB3D239A1BEA63B400B10EC2 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = SOURCE_ROOT; };
+		AB53A11520868CB600048624 /* keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keys.h; sourceTree = "<group>"; };
 		AB89298E2063145300C16963 /* color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = color.cpp; sourceTree = "<group>"; };
+		AB95649B2089933E002B42D8 /* keys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = keys.cpp; sourceTree = "<group>"; };
+		AB95649D20899813002B42D8 /* foo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = foo.cpp; sourceTree = "<group>"; };
 		ABC4D81A20796FE200EE0A91 /* driver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = driver.cpp; sourceTree = "<group>"; };
 		ABD7C1D32075CF260018300A /* internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				AB3D238A1BEA609E00B10EC2 /* main.cpp */,
+				AB95649D20899813002B42D8 /* foo.cpp */,
 				AB3D23821BEA607200B10EC2 /* include */,
 				AB3D23871BEA609600B10EC2 /* libsrc */,
 				AB3D238E1BEA60E600B10EC2 /* lib */,
@@ -85,6 +91,7 @@
 				ABD7C1D32075CF260018300A /* internal.h */,
 				AB3D238F1BEA617100B10EC2 /* CImg.h */,
 				AB1300A220682B25007FC086 /* utility.h */,
+				AB53A11520868CB600048624 /* keys.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -96,6 +103,7 @@
 				AB3D23891BEA609600B10EC2 /* graphics.cpp */,
 				ABC4D81A20796FE200EE0A91 /* driver.cpp */,
 				AB3D23881BEA609600B10EC2 /* utility.cpp */,
+				AB95649B2089933E002B42D8 /* keys.cpp */,
 			);
 			path = libsrc;
 			sourceTree = "<group>";
@@ -163,7 +171,9 @@
 				AB3D23971BEA633100B10EC2 /* graphics.cpp in Sources */,
 				AB89298F2063145300C16963 /* color.cpp in Sources */,
 				AB3D23961BEA632E00B10EC2 /* utility.cpp in Sources */,
+				AB95649E20899813002B42D8 /* foo.cpp in Sources */,
 				AB3D238B1BEA609E00B10EC2 /* main.cpp in Sources */,
+				AB95649C2089933E002B42D8 /* keys.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

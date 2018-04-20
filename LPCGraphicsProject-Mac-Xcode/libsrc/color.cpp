@@ -15,6 +15,8 @@
 #include <iostream>
 using namespace std;
 
+extern const unsigned int keyFAKE = 42;
+
 string _component_names[3] = { "red", "green", "blue" };
 map<string, string> * _color_map;
 bool _colors_ready = false;
