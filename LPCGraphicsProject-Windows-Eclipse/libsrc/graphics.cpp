@@ -221,4 +221,12 @@ void stopGraphics()
     _gdisplay->close();
 }
 
+void wait(unsigned int milliseconds)
+{
+    _refresh();
+    cimg_library::cimg::sleep(milliseconds);
+}
+
+
+
 

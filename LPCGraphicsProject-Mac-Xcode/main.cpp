@@ -4,12 +4,8 @@
 using namespace std;
 
 __INTERACTION_FUNCTIONS__
-
-Image face;
-
 void setup()
 {
-    face = loadImage("face.bmp");
     background(50);
     fillColor("LightBlue");
     text("HELLO WORLD", 200, 100, 32);
@@ -30,7 +26,6 @@ void draw()
         ellipse(mouseX(), mouseY(), 10, 10);
     }
 }
-
 
 __INTERACTION_FUNCTIONS_END__
 

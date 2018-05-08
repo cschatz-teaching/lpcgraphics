@@ -43,4 +43,6 @@ void image(Image img, int x, int y);
 void image(Image img, int x, int y, int width, int height);
 void image(Image img, int x, int y, double angle);
 
+void wait(unsigned int milliseconds);
+
 #endif /* LPCGRAPHICS_H */
